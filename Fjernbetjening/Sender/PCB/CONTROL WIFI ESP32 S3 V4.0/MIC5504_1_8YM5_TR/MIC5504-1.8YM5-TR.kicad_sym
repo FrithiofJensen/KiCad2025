@@ -1,0 +1,54 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "MIC5504-1.8YM5-TR" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "U" (id 0) (at -7.6301 8.13877 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "MIC5504-1.8YM5-TR" (id 1) (at -7.62083 -10.1611 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "MIC5504-1.8YM5-TR:SOT23-5P95_280X145XL45X37N" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "MICREL" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "MIC5504-1.8YM5-TR_0_0"
+      (rectangle (start -7.62 -7.62) (end 7.62 7.62)
+        (stroke (width 0.254)) (fill (type background))
+      )
+      (pin power_in line (at 10.16 5.08 180.0) (length 2.54)
+        (name "VIN"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin power_in line (at 10.16 -5.08 180.0) (length 2.54)
+        (name "GND"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin input line (at -10.16 5.08 0) (length 2.54)
+        (name "EN"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin output line (at 10.16 0.0 180.0) (length 2.54)
+        (name "VOUT"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
