@@ -912,7 +912,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "16c9ed94-7a22-4044-a1ee-23dc8e49936a")
-		(property "Reference" "U4"
+		(property "Reference" "U5"
 			(at 142.24 69.85 0)
 			(effects
 				(font
@@ -949,7 +949,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "\nJoystick, 2 - Axis Analog (Resistive) Output\n"
+		(property "Description" "Joystick, 2 - Axis Analog (Resistive) Output"
 			(at 148.59 90.17 0)
 			(effects
 				(font
@@ -1089,49 +1089,49 @@
 			)
 		)
 		(pin "S1"
-			(uuid "3e53f922-9d33-4a26-bc1a-d9a78cf84625")
+			(uuid "67f61a3f-17a0-4377-b8d2-de80b9e72ceb")
 		)
 		(pin "S4"
-			(uuid "48fc9c90-17c6-480c-8721-5d0d48ba5aed")
+			(uuid "2bed52e5-69c8-43bb-a34d-c03574f57918")
 		)
 		(pin "S3"
-			(uuid "10c1f090-5caa-4783-970e-642eefe96f8a")
+			(uuid "34cd9368-aee9-4e60-9902-f6dfe7a9c212")
 		)
 		(pin "V2"
-			(uuid "3f4006b5-9929-4d77-b7ed-7c3ff1ae5fda")
+			(uuid "48507e8d-2ebb-4f64-a80e-a919cbd6852d")
 		)
 		(pin "V3"
-			(uuid "e3a4d4e9-56c6-4d1b-bee5-298ffd184192")
+			(uuid "3d3776d4-bee0-426e-93db-b3fe71d9ad9b")
 		)
 		(pin "H1"
-			(uuid "33f031a3-61fb-4953-8f16-874ea09a72f5")
+			(uuid "b34176f4-280b-40fe-bf86-1471e884c656")
 		)
 		(pin "H2"
-			(uuid "9f7eafe9-21b9-4dce-aff7-ca9ed4df2a8e")
+			(uuid "c5c45b26-94ac-4993-a320-6d73d959f2f6")
 		)
 		(pin "H3"
-			(uuid "12ec7af3-aa35-44d0-a2f5-b1196a140924")
+			(uuid "ad5a121d-5876-4959-aaf7-9759e5cf2f71")
 		)
 		(pin "S2"
-			(uuid "6021b725-2748-4a63-b2f5-5174ae8b951b")
+			(uuid "da896377-2ab1-4949-8d41-5ed2b754ea0f")
 		)
 		(pin "V1"
-			(uuid "b01651e7-abda-46ca-b01f-10cee678b894")
+			(uuid "853a241a-6b1d-4142-875a-8f6830575340")
 		)
 		(pin "B2A"
-			(uuid "f9e37496-1a9f-4bb0-865d-4f6885c60a9d")
+			(uuid "e87231fe-8be3-4186-8bcc-bcde0daacbf7")
 		)
 		(pin "B1A"
-			(uuid "87591745-baaa-45ea-abe7-2d13af8a9294")
+			(uuid "2c36e8f5-e0a6-4352-84d8-ea1896185bed")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "U4")
-					(unit 1)
-				)
 				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
 					(reference "U5")
+					(unit 1)
+				)
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -1147,7 +1147,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "18eaaef1-d93f-421d-8535-9c384779d61a")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR030"
 			(at 129.54 88.9 0)
 			(effects
 				(font
@@ -1192,16 +1192,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "a2063484-d872-4536-b660-80580bd18703")
+			(uuid "a5e6a988-f6f3-4479-8510-a5ba4dc107ea")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR021")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR030")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR014")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -1217,7 +1217,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "392562ae-6b7a-42fa-a37f-0debe5d53c47")
-		(property "Reference" "R15"
+		(property "Reference" "R11"
 			(at 108.458 96.5778 0)
 			(effects
 				(font
@@ -1272,19 +1272,19 @@
 			)
 		)
 		(pin "1"
-			(uuid "513a57e0-b1c1-4c87-be25-44f89c4c5bbc")
+			(uuid "ac7d6bdc-2f03-4cea-9d77-edfed484bd06")
 		)
 		(pin "2"
-			(uuid "d9172235-1483-446a-9e09-b2c8a885beaa")
+			(uuid "c97098b5-7d6b-42ce-a068-2d22440fa8ff")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "R15")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "R11")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "R3")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -1300,7 +1300,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "43265a9b-7e98-4689-b8ed-8f1baf45e25b")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR029"
 			(at 128.27 116.84 0)
 			(effects
 				(font
@@ -1345,16 +1345,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "1f35dcc8-ad00-4e0f-883b-293d360f1278")
+			(uuid "68e7e695-b36e-4645-b6f1-879904641104")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR019")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR029")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR016")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -1371,7 +1371,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "83e38286-050b-4454-8471-a9387c1ec2a8")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR031"
 			(at 138.43 90.17 0)
 			(effects
 				(font
@@ -1417,16 +1417,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "5a0d26c0-642d-4905-a667-6058363d9196")
+			(uuid "3ded146f-ac85-4d7c-946a-3321e66500c7")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR022")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR031")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR012")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -1443,7 +1443,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b8d04c2a-e1c0-40b3-a7b3-224b0e9b3f37")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR032"
 			(at 139.7 80.01 0)
 			(effects
 				(font
@@ -1489,16 +1489,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "7d128fea-4d9d-4d17-af70-29f293f2eff9")
+			(uuid "3983acd2-3521-4aad-b204-068c8d031bd4")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR040")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR032")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR013")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -1514,7 +1514,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ccbcf4c3-8705-44eb-aca8-a5b515b36951")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR028"
 			(at 124.46 99.06 0)
 			(effects
 				(font
@@ -1559,16 +1559,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "1114d6dd-b1a4-4f95-9401-10793f252b23")
+			(uuid "2d39da1a-c1e6-4d26-97e5-f1ecd8b557ac")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR018")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR028")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR015")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -1585,7 +1585,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f0377a4d-8050-45cf-8a64-42ed6560a732")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR027"
 			(at 106.68 97.79 0)
 			(effects
 				(font
@@ -1630,16 +1630,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "f6e71f82-1713-4c28-bd88-def393771d64")
+			(uuid "9fab1578-5d34-425b-ad74-08779a4e837f")
 		)
 		(instances
 			(project "CONTROL WIFI ESP32 S3 V4.0"
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/6eda1525-bf1b-4dc6-873b-0e1de818b322"
-					(reference "#PWR017")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
+					(reference "#PWR027")
 					(unit 1)
 				)
-				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/99cc5c98-6514-47dd-bb58-54f3159921a5"
-					(reference "#PWR07")
+				(path "/a258bf7a-7e28-44d5-b6ba-b08ce88d15ec/e07ae3a1-b9e3-40ea-b295-881946743af4"
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
