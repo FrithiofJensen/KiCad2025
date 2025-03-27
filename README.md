@@ -4,7 +4,7 @@ Velkommen til materialerne for KiCad 2025 seminaret afholdt af Gert Lauritsen. D
 
 Formålet med seminaret er at demonstrere designflowet i KiCad – fra skematisk diagram til færdigt PCB-layout – med et konkret projekt som eksempel: design af hardware til en ESP-NOW baseret sender eller modtager.
 
-Vi vil se på, hvordan man designer et printkort, der integrerer en ESP8266 eller ESP32 microcontroller sammen med nødvendige komponenter som f.eks. input-enheder (joysticks, knapper) til en sender, eller output-drivere (servo-stik, motor-drivere) til en modtager. De medfølgende `.ino` filer implementerer selve ESP-NOW kommunikationen.
+Vi vil se på, hvordan man designer et printkort, der integrerer en ESP32 microcontroller sammen med nødvendige komponenter som f.eks. input-enheder (joysticks, knapper) til en sender, eller output-drivere (servo-stik, motor-drivere) til en modtager. De medfølgende `.ino` filer implementerer selve ESP-NOW kommunikationen.
 
 ## Indhold
 
@@ -19,7 +19,7 @@ Repository'et indeholder (eller vil indeholde) følgende:
 *   **ESP-NOW RC Arduino Sketches (`.ino`):**
     *   `RcRemote.ino`: Kode til ESP32 **senderen**. Læser typisk inputs (f.eks. fra potentiometre/joystick på det designede PCB) og sender data via ESP-NOW.
     *   `RCModtager.ino`: Kode til ESP32 **modtageren**. Modtager data via ESP-NOW og styrer outputs (f.eks. servoer eller motorer, potentielt via det designede PCB).
-    *   Disse filer er beregnet til at blive kompileret og uploadet via Arduino IDE til separate ESP8266/ESP32 boards.
+    *   Disse filer er beregnet til at blive kompileret og uploadet via Arduino IDE til separate ESP32 boards.
 *   **Gerber/Produktionsfiler (Eksempel):**
     *   Eksempler på output-filer (`.gbr`, `.drl`) til PCB-produktion.
 
