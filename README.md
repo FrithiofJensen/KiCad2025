@@ -31,8 +31,7 @@ For at få det fulde udbytte af seminaret og materialerne anbefales følgende so
     *   **KiCad:**  Den seneste stabile version anbefales. Kan downloades gratis fra [https://www.kicad.org/](https://www.kicad.org/).
     *   **Arduino IDE:** Nødvendig for at arbejde med `.ino` filerne. Kan downloades gratis fra [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software).
         *   **VIGTIGT:** Sørg for at have **ESP8266** og/eller **ESP32 board support** installeret i Arduino IDE via "Boards Manager". Se guides online, f.eks.:
-            *   ESP32: [https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-v2/](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-v2/)
-            *   ESP8266: [https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/](https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/)
+            *   ESP32: [Howto install ESP32](https://randomnerdtutorials.com/installing-esp32-arduino-ide-2-0/)
         *   Tjek `.ino` filerne for eventuelle yderligere nødvendige Arduino libraries (ud over ESP-NOW, som er indbygget) og installer dem via "Library Manager".
 *   **Hardware:**
     *   **Mindst to ESP32 boards** (f.eks. NodeMCU, ESP32 DevKitC) – ét til senderen og ét til modtageren for at kunne teste ESP-NOW kommunikationen.
