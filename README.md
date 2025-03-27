@@ -42,8 +42,8 @@ For at få det fulde udbytte af seminaret og materialerne anbefales følgende so
 1.  **Klon eller Download:** Hent materialerne ned på din computer ved at klone repository'et (`git clone https://github.com/gert-lauritsen/KiCad2025.git`) eller downloade det som en ZIP-fil.
 2.  **KiCad:** Åbn `.kicad_pro` filen i KiCad for at udforske skematik og PCB layout. Brug filerne som reference eller udgangspunkt for dit eget RC-hardware design.
 3.  **Arduino / ESP-NOW:**
-    *   Åbn `[Sender_Filnavn].ino` i Arduino IDE.
-    *   Åbn `[Modtager_Filnavn].ino` i et andet Arduino IDE vindue (eller efter hinanden).
+    *   Åbn `RcRemote.ino` i Arduino IDE.
+    *   Åbn `RCModtager.ino` i et andet Arduino IDE vindue (eller efter hinanden).
     *   **Vigtigt:** ESP-NOW kræver, at enhederne kender hinandens MAC-adresser. Du skal typisk finde MAC-adressen på modtager-boardet og indsætte den i koden på sender-boardet (og/eller omvendt, afhængigt af koden). Find instruktioner til dette i kode-kommentarerne eller i ESP-NOW tutorials.
     *   Vælg det korrekte ESP32 board og port i "Tools" menuen for hvert board.
     *   Kompilér og upload sender-koden til det ene board.
