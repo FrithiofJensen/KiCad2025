@@ -1,4 +1,4 @@
-# KiCad 2025 - Fra Skematik til PCB for ESP-NOW RC System
+# KiCad 2025 - Fra schematic til PCB til ESP-NOW RC System
 
 Velkommen til materialerne for KiCad 2025 seminaret afholdt af Gert Lauritsen. Dette repository indeholder eksempler, projektfiler og Arduino-kode specifikt fokuseret på design af et printkort (PCB) til et fjernstyringssystem (RC) baseret på ESP-NOW protokollen.
 
