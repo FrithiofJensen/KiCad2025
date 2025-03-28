@@ -4,8 +4,8 @@
 
 // --- Configuration ---
 // Define pin counts (must match sender)
-const int numPots = 6;
-const int numSwitches = 6;
+const int numPots = 4;
+const int numSwitches = 7;
 
 // --- Data Structure ---
 // Structure to hold sensor data. MUST match the sender's structure.
@@ -19,7 +19,9 @@ SensorData receivedData;
 
 // --- Callback Function ---
 // Function called when data is received
-void OnDataRecv(const uint8_t *mac_addr, const uint8_t *incomingData, int len) {
+//void OnDataRecv(const uint8_t *mac_addr, const uint8_t *incomingData, int len) {
+void OnDataRecv(const esp_now_recv_info_t *recv_info, const uint8_t *incomingData, int len) {
+  //const uint8_t *mac_addr = recv_info->src_addr;
   // Check if the data length matches the structure size
   if (len == sizeof(receivedData)) {
     memcpy(&receivedData, incomingData, sizeof(receivedData));

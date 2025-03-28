@@ -1,15 +1,18 @@
 #include <esp_now.h>
 #include <WiFi.h>
 #include <Arduino.h>
+#include <HardwareSerial.h>
 
 // --- Configuration ---
 // Define the GPIO pins for potentiometers
-const int potPins[] = {4, 5, 17, 18, 14, 16};
+const int potPins[] = {17, 18, 3, 4}; //Wroom-S2 version
+//const int potPins[] = {4, 5, 17, 18, 14, 16}; //Wroom version
 const int numPots = sizeof(potPins) / sizeof(potPins[0]);
 
 // Define the GPIO pins for switches
 // NOTE: GPIO 35 is INPUT ONLY
-const int switchPins[] = {2, 12, 13, 15, 35, 19};
+const int switchPins[] = {0, 8, 9, 12, 13, 15, 37}; //WROOM-S2 version
+//const int switchPins[] = {2, 12, 13, 15, 35, 19}; //WROOM version
 const int numSwitches = sizeof(switchPins) / sizeof(switchPins[0]);
 
 // Update frequency (milliseconds)
@@ -28,6 +31,7 @@ typedef struct SensorData {
 
 // Create an instance of the structure
 SensorData myData;
+HardwareSerial SerialPort(1);  // UART1 instance
 
 // --- ESP-NOW Variables ---
 esp_now_peer_info_t peerInfo;
@@ -36,6 +40,7 @@ unsigned long lastUpdateTime = 0;
 // --- Callback Function ---
 // Function called when data is sent
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+
   // Optional: Print confirmation to Sender's Serial Monitor
   // Serial.print("Last Packet Send Status: ");
   // Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
@@ -43,20 +48,21 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 
 // --- Setup Function ---
 void setup() {
-  Serial.begin(115200);
-  Serial.println("ESP32 ESP-NOW Sender");
+  SerialPort.begin(115200, SERIAL_8N1, 6, 5); // WROOM-S2
+  //Serial.begin(115200);
+  SerialPort.println("ESP32 ESP-NOW Sender");
 
   // 1. Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA);
-  Serial.print("Sender MAC Address: ");
-  Serial.println(WiFi.macAddress()); // Print MAC address to help configure receiver
+  SerialPort.print("Sender MAC Address: ");
+  SerialPort.println(WiFi.macAddress()); // Print MAC address to help configure receiver
 
   // 2. Initialize ESP-NOW
   if (esp_now_init() != ESP_OK) {
-    Serial.println("Error initializing ESP-NOW");
+    SerialPort.println("Error initializing ESP-NOW");
     return;
   }
-  Serial.println("ESP-NOW Initialized.");
+  SerialPort.println("ESP-NOW Initialized.");
 
   // 3. Register the send callback function
   esp_now_register_send_cb(OnDataSent);
@@ -68,10 +74,10 @@ void setup() {
 
   // 5. Add peer
   if (esp_now_add_peer(&peerInfo) != ESP_OK) {
-    Serial.println("Failed to add peer");
+    SerialPort.println("Failed to add peer");
     return;
   }
-  Serial.println("Peer Added.");
+  SerialPort.println("Peer Added.");
 
   // 6. Configure GPIOs
   // Potentiometers (Analog Input) - No specific pinMode needed for ADC1 pins usually
@@ -79,8 +85,11 @@ void setup() {
   for (int i = 0; i < numSwitches; i++) {
     pinMode(switchPins[i], INPUT_PULLUP);
   }
-  Serial.println("GPIOs Configured.");
-  Serial.println("Setup Complete. Starting loop...");
+  pinMode(38, INPUT_PULLUP);
+  pinMode(40, INPUT_PULLUP);
+
+  SerialPort.println("GPIOs Configured.");
+  SerialPort.println("Setup Complete. Starting loop...");
 }
 
 // --- Loop Function ---
@@ -100,6 +109,15 @@ void loop() {
       // digitalRead is LOW when pressed (connected to GND) with INPUT_PULLUP
       myData.switchStates[i] = (digitalRead(switchPins[i]) == LOW);
     }
+
+    SerialPort.println("--- Sent Data ---");
+    SerialPort.print("Pots: ");
+    for (int i = 0; i < numPots; i++) {
+      SerialPort.print(myData.potValues[i]);
+      if (i < numPots - 1) SerialPort.print(", ");
+    }
+    SerialPort.println();
+    SerialPort.println("---------------------");
 
     // Send data via ESP-NOW
     esp_err_t result = esp_now_send(receiverMac, (uint8_t *) &myData, sizeof(myData));
