@@ -1,6 +1,7 @@
 #include <esp_now.h>
 #include <WiFi.h>
 #include <Arduino.h>
+#include <ESP32Servo.h>
 
 // --- Configuration ---
 // Define pin counts (must match sender)
@@ -16,6 +17,19 @@ typedef struct SensorData {
 
 // Create an instance of the structure to store received data
 SensorData receivedData;
+
+Servo servo1;  // Servo on GPIO 14
+Servo servo2;  // Servo on GPIO 16
+
+void UpdateServo(){
+    // Update servo positions based on potValues (assuming 0-1023 input range)
+  int servoAngle1 = map(receivedData.potValues[0], 0, 1023, 0, 180);
+  int servoAngle2 = map(receivedData.potValues[1], 0, 1023, 0, 180);
+
+  servo1.write(servoAngle1);
+  servo2.write(servoAngle2);
+}
+
 
 // --- Callback Function ---
 // Function called when data is received
@@ -71,11 +85,29 @@ void setup() {
     return;
   }
   Serial.println("ESP-NOW Initialized.");
+    // Allow allocation of GPIO pins for ESP32 Servo control
+  ESP32PWM::allocateTimer(0);
+  ESP32PWM::allocateTimer(1);
+  ESP32PWM::allocateTimer(2);
+  ESP32PWM::allocateTimer(3);
+
+  servo1.setPeriodHertz(50); // standard 50 Hz servo
+  servo2.setPeriodHertz(50);
+
+  // Servo initialization
+
+  servo1.attach(14);
+  servo2.attach(16);
+  // GPIO outputs initialization
+  pinMode(15, OUTPUT);
+  pinMode(17, OUTPUT);
+  pinMode(18, OUTPUT);
 
   // 3. Register the receive callback function
   esp_now_register_recv_cb(OnDataRecv);
   Serial.println("Receive Callback Registered.");
   Serial.println("Setup Complete. Waiting for data...");
+  //wait for 1 sec after first data to set zeroo on servo
 }
 
 // --- Loop Function ---
