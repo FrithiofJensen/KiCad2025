@@ -3,10 +3,15 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
+#define MotorESC 16
+#define RorServo 14
 // --- Configuration ---
 // Define pin counts (must match sender)
 const int numPots = 4;
 const int numSwitches = 7;
+
+// Define dead-zone threshold
+const int DEAD_ZONE_THRESHOLD = 5100;
 
 // --- Data Structure ---
 // Structure to hold sensor data. MUST match the sender's structure.
@@ -17,17 +22,34 @@ typedef struct SensorData {
 
 // Create an instance of the structure to store received data
 SensorData receivedData;
+bool LastswitchStates[numSwitches];
+bool outputs[numSwitches];
 
 Servo servo1;  // Servo on GPIO 14
 Servo servo2;  // Servo on GPIO 16
 
+void UpdateOutput() {
+  //maps switchs to outputs
+  digitalWrite(15,outputs[0]);
+  digitalWrite(17,outputs[1]);
+  digitalWrite(18,outputs[2]);
+}
+
+
 void UpdateServo(){
-    // Update servo positions based on potValues (assuming 0-1023 input range)
-  int servoAngle1 = map(receivedData.potValues[0], 0, 1023, 0, 180);
-  int servoAngle2 = map(receivedData.potValues[1], 0, 1023, 0, 180);
+    // Update servo positions based on potValues (assuming 0-8192 input range)
+  int servoAngle1 = map(receivedData.potValues[1], DEAD_ZONE_THRESHOLD, 8192, 0, 180);
+  int servoAngle2 = map(receivedData.potValues[0], 0, 8192, 0, 180);
 
   servo1.write(servoAngle1);
   servo2.write(servoAngle2);
+  for (int i = 0; i < numPots; i++) {
+    if (receivedData.switchStates[i] && (!LastswitchStates[i])) {
+      outputs[i] = !outputs[i];
+    }
+    LastswitchStates[i]=receivedData.switchStates[i];
+  } 
+  UpdateOutput(); 
 }
 
 
@@ -60,13 +82,14 @@ void OnDataRecv(const esp_now_recv_info_t *recv_info, const uint8_t *incomingDat
     }
     Serial.println(); // New line after switches
     Serial.println("---------------------");
-
+    UpdateServo(); //Send data to servo
   } else {
     Serial.print("Received data of incorrect size: ");
     Serial.print(len);
     Serial.print(" expected: ");
     Serial.println(sizeof(receivedData));
   }
+
 }
 
 // --- Setup Function ---
@@ -96,8 +119,10 @@ void setup() {
 
   // Servo initialization
 
-  servo1.attach(14);
-  servo2.attach(16);
+  servo1.attach(MotorESC);
+  servo2.attach(RorServo);
+  servo1.write(0); // Initialize ESC at 0 throttle
+  delay(5000); // Wait 5 seconds for ESC to arm
   // GPIO outputs initialization
   pinMode(15, OUTPUT);
   pinMode(17, OUTPUT);
