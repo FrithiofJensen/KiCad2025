@@ -5,10 +5,13 @@
 
 #define MotorESC 16
 #define RorServo 14
+
 // --- Configuration ---
 // Define pin counts (must match sender)
 const int numPots = 4;
 const int numSwitches = 7;
+const int minThrottle = 1100; // Don't go below 1000 µs
+const int maxThrottle = 2400; // Your maximum value
 
 // Define dead-zone threshold
 const int DEAD_ZONE_THRESHOLD = 5100;
@@ -38,10 +41,10 @@ void UpdateOutput() {
 
 void UpdateServo(){
     // Update servo positions based on potValues (assuming 0-8192 input range)
-  int servoAngle1 = map(receivedData.potValues[1], DEAD_ZONE_THRESHOLD, 8192, 0, 180);
+  int servoAngle1 = map(receivedData.potValues[1], DEAD_ZONE_THRESHOLD, 8192, minThrottle, maxThrottle);
   int servoAngle2 = map(receivedData.potValues[0], 0, 8192, 0, 180);
 
-  servo1.write(servoAngle1);
+  servo1.writeMicroseconds(servoAngle1);
   servo2.write(servoAngle2);
   for (int i = 0; i < numPots; i++) {
     if (receivedData.switchStates[i] && (!LastswitchStates[i])) {
@@ -121,7 +124,7 @@ void setup() {
 
   servo1.attach(MotorESC);
   servo2.attach(RorServo);
-  servo1.write(0); // Initialize ESC at 0 throttle
+  servo1.writeMicroseconds(minThrottle);  // Initialize ESC at 0 throttle
   delay(5000); // Wait 5 seconds for ESC to arm
   // GPIO outputs initialization
   pinMode(15, OUTPUT);
