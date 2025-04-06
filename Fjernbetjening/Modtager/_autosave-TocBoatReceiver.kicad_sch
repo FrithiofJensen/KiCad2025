@@ -3183,6 +3183,16 @@
 	)
 	(wire
 		(pts
+			(xy 149.86 111.76) (xy 143.51 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "219202e4-feed-46bb-9ff0-50b33f9d7d40")
+	)
+	(wire
+		(pts
 			(xy 176.53 55.88) (xy 194.31 55.88)
 		)
 		(stroke
@@ -3260,6 +3270,16 @@
 			(type default)
 		)
 		(uuid "4710eea1-0f97-4327-bd62-3cdb5697a22c")
+	)
+	(wire
+		(pts
+			(xy 149.86 111.76) (xy 149.86 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b5cdcd6-e7c6-4cf2-88b1-c43504700609")
 	)
 	(wire
 		(pts
@@ -3463,16 +3483,6 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 119.38) (xy 149.86 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a27ac8f1-f529-493c-b15a-7b95040e3493")
-	)
-	(wire
-		(pts
 			(xy 95.25 59.69) (xy 97.79 59.69)
 		)
 		(stroke
@@ -3540,16 +3550,6 @@
 			(type default)
 		)
 		(uuid "c719c9c8-1fdb-4eba-b33b-681e89bd04c1")
-	)
-	(wire
-		(pts
-			(xy 149.86 119.38) (xy 149.86 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c8d8846c-8ad9-437b-b221-d16d1ca64881")
 	)
 	(wire
 		(pts
@@ -6792,13 +6792,13 @@
 			)
 		)
 		(pin "GPIO4" input
-			(at 114.3 107.95 180)
+			(at 143.51 111.76 0)
 			(uuid "9328e7c0-0ba0-445b-b865-a2bd002b883d")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "GPIO35" input
@@ -6852,13 +6852,13 @@
 			)
 		)
 		(pin "GPIO18" input
-			(at 114.3 138.43 180)
+			(at 143.51 114.3 0)
 			(uuid "6c44e4da-7dcd-47b1-8603-cd71eb280e58")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "GPIO13" input
@@ -6872,13 +6872,13 @@
 			)
 		)
 		(pin "GPIO17" input
-			(at 114.3 135.89 180)
+			(at 143.51 116.84 0)
 			(uuid "3c1d5249-6e8a-43fb-86b0-a640ad5c3691")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "GPIO15" input
